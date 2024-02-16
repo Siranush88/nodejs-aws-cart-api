@@ -35,16 +35,16 @@ export class CartService {
   }
 
   updateByUserId(userId: string, { items }: ICart): ICart {
-    console.log('items >>>>>>>>>', items);
-    console.log('userId >>>>>>>>>', userId);
+    //console.log('items >>>>>>>>>', items);
+    //console.log('userId >>>>>>>>>', userId);
 
     const { id, ...rest } = this.findOrCreateByUserId(userId);
 
     const updatedCart = {
       id,
       ...rest,
-      items: [...items],
-      //items: items ? [...items] : [],
+      //items: [...items],
+      items: items ? [...items] : [],
     };
 
     this.userCarts[userId] = { ...updatedCart };

@@ -36,7 +36,10 @@ export class CartController {
     return {
       statusCode: HttpStatus.OK,
       message: 'OK',
-      data: { cart, total: calculateCartTotal(await cart) },
+      data: {
+        cart,
+        // total: calculateCartTotal(await cart)
+      },
     };
   }
 
@@ -44,7 +47,7 @@ export class CartController {
   // @UseGuards(BasicAuthGuard)
   @Put()
   async updateUserCart(@Req() req: AppRequest, @Body() body) {
-    console.log('request', req);
+    // console.log('request', req);
 
     // TODO: validate body payload...
     const cart = this.cartService.updateByUserId(
@@ -57,7 +60,7 @@ export class CartController {
       message: 'OK',
       data: {
         cart,
-        total: calculateCartTotal(await cart),
+        // total: calculateCartTotal(await cart),
       },
     };
   }
